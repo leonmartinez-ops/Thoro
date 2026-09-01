@@ -36,6 +36,13 @@ function scrollToReal(index, behavior = 'smooth') {
   experience.scrollTo({ top: (index + 1) * panelHeight, behavior });
 }
 
+function jumpTo(top) {
+  const previous = experience.style.scrollBehavior;
+  experience.style.scrollBehavior = 'auto';
+  experience.scrollTop = top;
+  requestAnimationFrame(() => { experience.style.scrollBehavior = previous; });
+}
+
 function setActive(panel) {
   panels.forEach(item => item.classList.toggle('is-active', item === panel));
   const realIndex = Number(panel.dataset.realIndex);
@@ -57,10 +64,10 @@ function settleLoop() {
   settleTimer = setTimeout(() => {
     const position = nearestPanel();
     if (position === 0) {
-      experience.scrollTo({ top: originalPanels.length * panelHeight, behavior: 'auto' });
+      jumpTo(originalPanels.length * panelHeight);
       setActive(originalPanels.at(-1));
     } else if (position === panels.length - 1) {
-      experience.scrollTo({ top: panelHeight, behavior: 'auto' });
+      jumpTo(panelHeight);
       setActive(originalPanels[0]);
     }
   }, 150);
@@ -95,13 +102,13 @@ window.addEventListener('resize', () => {
   resizing = true;
   requestAnimationFrame(() => {
     panelHeight = window.innerHeight;
-    scrollToReal(activeRealIndex, 'auto');
+    jumpTo((activeRealIndex + 1) * panelHeight);
     resizing = false;
   });
 });
 
 requestAnimationFrame(() => {
   panelHeight = window.innerHeight;
-  experience.scrollTop = panelHeight;
+  jumpTo(panelHeight);
   setActive(originalPanels[0]);
 });
