@@ -3,145 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0b0b" />
+  <meta name="theme-color" content="#080808" />
   <meta name="description" content="THORO crea murales, tapiales y gráfica ambiental para espacios comerciales." />
   <meta property="og:title" content="THORO — Murales y tapiales" />
   <meta property="og:description" content="Pintamos espacios que la gente recuerda." />
-  <meta property="og:image" content="assets/hero-calaveras.webp" />
+  <meta property="og:image" content="assets/full/calaveras.webp" />
   <title>THORO — Murales y tapiales</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="assets/hero-calaveras.webp" as="image" />
+  <link rel="preload" href="assets/full/calaveras.webp" as="image" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
+
   <header class="site-header">
-    <a class="wordmark" href="#inicio" data-go="0" aria-label="THORO, inicio">TH<span>O</span>RO</a>
-    <p class="header-tag">Murales · Tapiales<br />Gráfica ambiental</p>
-    <a class="header-cta" href="mailto:leonmartinez@bra-va.mx?subject=Quiero%20cotizar%20un%20mural">Cotizar <span>↗</span></a>
+    <a class="wordmark" href="#" data-home aria-label="THORO, inicio">TH<span>O</span>RO</a>
+    <p class="header-tag">Murales · Tapiales · Gráfica ambiental</p>
+    <a class="header-cta" href="mailto:leonmartinez@bra-va.mx?subject=Quiero%20cotizar%20un%20proyecto%20THORO">Cotizar <span>↗</span></a>
   </header>
 
-  <main class="experience" data-experience aria-label="Portafolio THORO">
-    <section class="panel panel--hero" id="inicio" data-label="THORO" data-accent="#dfff00" data-effect="hero">
-      <div class="panel-media"><img src="assets/hero-calaveras.webp" alt="Mural colorido de calaveras y corazones" width="1536" height="1152" /></div>
-      <div class="panel-shade"></div>
-      <div class="panel-copy hero-copy">
-        <p class="eyebrow fx">ESTUDIO MURAL · CDMX</p>
-        <h1 class="hero-title fx" aria-label="THORO"><span>THO</span><span class="outline">RO</span></h1>
-        <div class="hero-statement fx"><p>Pintamos espacios</p><p>que la gente recuerda.</p></div>
-      </div>
-      <p class="scene-index">00</p>
+  <main class="portfolio" data-portfolio aria-live="polite">
+    <div class="ambient" aria-hidden="true"><img data-ambient src="assets/full/calaveras.webp" alt="" /></div>
+
+    <figure class="stage" data-stage>
+      <img class="stage-image is-visible" data-layer="a" src="assets/full/calaveras.webp" alt="Mural colorido de calaveras y corazones" />
+      <img class="stage-image" data-layer="b" src="assets/full/calaveras.webp" alt="" />
+      <div class="stage-vignette"></div>
+    </figure>
+
+    <section class="project-info" data-info>
+      <div class="project-meta"><span data-index>01 / 25</span><span data-category>Mural artístico</span></div>
+      <h1 data-title>Calaveras de color</h1>
+      <p data-description>Una pared convertida en identidad.</p>
     </section>
 
-    <section class="panel" data-label="Calaveras" data-accent="#ff5a36" data-effect="split">
-      <div class="panel-media"><img src="assets/calaveras-color.webp" alt="Mural de calaveras construido con formas de corazón" loading="lazy" /></div>
-      <div class="panel-shade"></div>
-      <div class="panel-copy panel-copy--wide">
-        <p class="eyebrow fx">MURAL · ARTE ORIGINAL</p>
-        <h2 class="scene-title fx"><span>Color que</span><span>se queda.</span></h2>
-        <div class="scene-foot fx"><strong>Calaveras de color</strong><p>Diseño, trazo y producción mural para transformar una pared en un punto de identidad.</p></div>
-      </div>
-      <p class="scene-index">01</p>
-    </section>
-
-    <section class="panel panel--light" data-label="Kanpai" data-accent="#ffcb3b" data-effect="rise">
-      <div class="panel-media panel-media--contain"><img src="assets/kanpai-panoramica.webp" alt="Intervención mural panorámica en restaurante Kanpai" loading="lazy" /></div>
-      <div class="panel-shade"></div>
-      <div class="panel-copy panel-copy--bottom">
-        <p class="eyebrow fx">RESTAURANTE · INTERVENCIÓN INTEGRAL</p>
-        <h2 class="scene-title scene-title--stroke fx"><span>Una historia</span><span>en cada muro.</span></h2>
-        <div class="scene-foot fx"><strong>Kanpai</strong><p>Un sistema gráfico que recorre el espacio y convierte el interior en una experiencia.</p></div>
-      </div>
-      <p class="scene-index">02</p>
-    </section>
-
-    <section class="panel" data-label="La Culposa" data-accent="#ff3ead" data-effect="swing">
-      <div class="panel-media"><img src="assets/la-culposa-frente.webp" alt="Mural con mano ilustrada y personajes en La Culposa" loading="lazy" /></div>
-      <div class="panel-shade panel-shade--violet"></div>
-      <div class="panel-copy panel-copy--right">
-        <p class="eyebrow fx">IDENTIDAD ESPACIAL · HOSPITALIDAD</p>
-        <h2 class="scene-title fx"><span>Del concepto</span><span>al recorrido.</span></h2>
-        <div class="scene-foot fx"><strong>La Culposa</strong><p>Personajes, color y geometría para construir un universo propio.</p></div>
-      </div>
-      <p class="scene-index">03</p>
-    </section>
-
-    <section class="panel" data-label="Gran formato" data-accent="#4bff93" data-effect="zoom">
-      <div class="panel-media"><img src="assets/la-isla-noche.webp" alt="Fachada comercial de gran formato iluminada de noche" loading="lazy" /></div>
-      <div class="panel-shade"></div>
-      <div class="panel-copy panel-copy--center">
-        <p class="eyebrow fx">FACHADAS · TAPIALES · GRAN FORMATO</p>
-        <h2 class="scene-title scene-title--mega fx"><span>Escala</span><span>comercial.</span></h2>
-        <div class="scene-foot fx"><strong>La Isla</strong><p>Producción e instalación para superficies que exigen impacto desde lejos.</p></div>
-      </div>
-      <p class="scene-index">04</p>
-    </section>
-
-    <section class="panel panel--duotone" data-label="Tapiales" data-accent="#8e6cff" data-effect="wipe">
-      <div class="panel-media"><img src="assets/paseo-tapial.webp" alt="Tapial publicitario curvo en centro comercial" loading="lazy" /></div>
-      <div class="panel-shade"></div>
-      <div class="panel-copy">
-        <p class="eyebrow fx">IMPRESIÓN · INSTALACIÓN · COBERTURA</p>
-        <h2 class="scene-title fx"><span>Superficies</span><span>que venden.</span></h2>
-        <div class="scene-foot fx"><strong>Tapiales</strong><p>Gráfica temporal de alta presencia para aperturas, lanzamientos y obra comercial.</p></div>
-      </div>
-      <p class="scene-index">05</p>
-    </section>
-
-    <section class="panel panel--light" data-label="Movimiento" data-accent="#ff693d" data-effect="cascade">
-      <div class="panel-media"><img src="assets/mural-pastel-general.webp" alt="Mural abstracto en interior con formas orgánicas" loading="lazy" /></div>
-      <div class="panel-shade panel-shade--soft"></div>
-      <div class="panel-copy panel-copy--bottom">
-        <p class="eyebrow fx">MURAL ABSTRACTO · INTERIOR</p>
-        <h2 class="scene-title fx"><span>Forma.</span><span>Ritmo.</span><span>Movimiento.</span></h2>
-        <div class="scene-foot fx"><strong>Movimiento</strong><p>Composiciones diseñadas para dialogar con la arquitectura y la luz.</p></div>
-      </div>
-      <p class="scene-index">06</p>
-    </section>
-
-    <section class="panel" data-label="Textura" data-accent="#f2bad1" data-effect="bloom">
-      <div class="panel-media"><img src="assets/mural-floral.webp" alt="Intervención floral tridimensional en espacio comercial" loading="lazy" /></div>
-      <div class="panel-shade"></div>
-      <div class="panel-copy panel-copy--right">
-        <p class="eyebrow fx">VOLUMEN · DETALLE · PHOTO OPPORTUNITY</p>
-        <h2 class="scene-title fx"><span>Más allá</span><span>de la pintura.</span></h2>
-        <div class="scene-foot fx"><strong>Intervención floral</strong><p>Capas, volumen y textura para crear espacios que la gente quiere fotografiar.</p></div>
-      </div>
-      <p class="scene-index">07</p>
-    </section>
-
-    <section class="panel" data-label="Luz" data-accent="#65f9ff" data-effect="neon">
-      <div class="panel-media"><img src="assets/mural-luz.webp" alt="Mural ilustrado con líneas luminosas" loading="lazy" /></div>
-      <div class="panel-shade panel-shade--blue"></div>
-      <div class="panel-copy panel-copy--center">
-        <p class="eyebrow fx">MURAL · LUZ INTEGRADA</p>
-        <h2 class="scene-title scene-title--mega fx"><span>La idea</span><span>enciende.</span></h2>
-        <div class="scene-foot fx"><strong>Intervención luminosa</strong><p>Diseño mural que integra iluminación y convierte el espacio en escenario.</p></div>
-      </div>
-      <p class="scene-index">08</p>
-    </section>
-
-    <section class="panel panel--contact" data-label="Contacto" data-accent="#dfff00" data-effect="contact">
-      <div class="panel-media"><img src="assets/mural-panoramico.webp" alt="Proceso de producción mural en un espacio interior" loading="lazy" /></div>
-      <div class="panel-shade panel-shade--contact"></div>
-      <div class="panel-copy contact-copy">
-        <p class="eyebrow fx">DISEÑO · PRODUCCIÓN · INSTALACIÓN</p>
-        <h2 class="contact-title fx"><span>Tu muro</span><span>es el siguiente.</span></h2>
-        <div class="contact-actions fx">
-          <a href="mailto:leonmartinez@bra-va.mx?subject=Quiero%20cotizar%20un%20proyecto%20THORO">Hablemos de tu proyecto <span>↗</span></a>
-          <p>leonmartinez@bra-va.mx<br />CDMX · Proyectos en México</p>
-        </div>
-      </div>
-      <p class="scene-index">09</p>
-    </section>
+    <button class="arrow arrow--prev" type="button" data-prev aria-label="Proyecto anterior">←</button>
+    <button class="arrow arrow--next" type="button" data-next aria-label="Proyecto siguiente">→</button>
+    <div class="swipe-cue" aria-hidden="true"><i></i><span>Desliza</span></div>
   </main>
 
-  <aside class="scene-nav" aria-label="Navegación de proyectos">
-    <div class="scene-count"><span data-current>00</span><i></i><span>09</span></div>
-    <div class="scene-dots" data-dots></div>
-    <p data-scene-name>THORO</p>
-  </aside>
-  <div class="scroll-cue" aria-hidden="true"><span>Desliza</span><i></i></div>
+  <nav class="filmstrip" aria-label="Todos los proyectos">
+    <div class="filmstrip-head"><span>Archivo visual</span><span data-archive-count>25 proyectos</span></div>
+    <div class="thumbs" data-thumbs></div>
+  </nav>
+
   <script src="script.js"></script>
 </body>
 </html>
