@@ -35,6 +35,8 @@ const title = document.querySelector('[data-title]');
 const category = document.querySelector('[data-category]');
 const description = document.querySelector('[data-description]');
 const indexLabel = document.querySelector('[data-index]');
+const progress = document.querySelector('[data-progress]');
+const gestureGuide = document.querySelector('[data-gesture-guide]');
 const thumbs = document.querySelector('[data-thumbs]');
 const layers = [document.querySelector('[data-layer="a"]'), document.querySelector('[data-layer="b"]')];
 let activeLayer = 0;
@@ -53,7 +55,10 @@ projects.forEach((project, index) => {
   button.dataset.number = String(index + 1).padStart(2, '0');
   button.setAttribute('aria-label', `Ver ${project.title}`);
   button.innerHTML = `<img src="assets/thumbs/${project.file}.webp" alt="" loading="lazy" />`;
-  button.addEventListener('click', () => showProject(index));
+  button.addEventListener('click', () => {
+    dismissGuide();
+    showProject(index, false, index >= activeIndex ? 1 : -1);
+  });
   thumbs.append(button);
 });
 
@@ -66,7 +71,7 @@ function preload(index) {
   image.src = `assets/full/${projects[wrap(index)].file}.webp`;
 }
 
-async function showProject(nextIndex, immediate = false) {
+async function showProject(nextIndex, immediate = false, direction = 1) {
   const normalized = wrap(nextIndex);
   if (!immediate && normalized === activeIndex) return;
   const project = projects[normalized];
@@ -76,7 +81,12 @@ async function showProject(nextIndex, immediate = false) {
   const currentLayer = layers[activeLayer];
   const source = `assets/full/${project.file}.webp`;
 
-  if (!immediate) info.classList.add('is-changing');
+  const enterClass = direction > 0 ? 'enter-next' : 'enter-prev';
+  const exitClass = direction > 0 ? 'exit-next' : 'exit-prev';
+  if (!immediate) {
+    info.classList.add('is-changing');
+    nextLayer.className = `stage-image ${enterClass}`;
+  }
   nextLayer.src = source;
   nextLayer.alt = project.alt;
   try { await nextLayer.decode(); } catch (_) { /* onload fallback */ }
@@ -86,13 +96,18 @@ async function showProject(nextIndex, immediate = false) {
   category.textContent = project.category;
   description.textContent = project.description;
   indexLabel.textContent = `${String(normalized + 1).padStart(2,'0')} / ${String(projects.length).padStart(2,'0')}`;
+  progress.style.transform = `scaleX(${(normalized + 1) / projects.length})`;
   root.style.setProperty('--accent', project.accent);
   ambient.style.opacity = '.12';
   ambient.src = source;
 
   if (!immediate) {
+    nextLayer.getBoundingClientRect();
     nextLayer.classList.add('is-visible');
+    nextLayer.classList.remove(enterClass);
     currentLayer.classList.remove('is-visible');
+    currentLayer.classList.add(exitClass);
+    setTimeout(() => currentLayer.classList.remove(exitClass), 720);
     activeLayer = nextLayerIndex;
   }
 
@@ -109,8 +124,10 @@ async function showProject(nextIndex, immediate = false) {
   preload(normalized - 1);
 }
 
-function next() { showProject(activeIndex + 1); }
-function previous() { showProject(activeIndex - 1); }
+function dismissGuide() { gestureGuide?.classList.add('is-hidden'); }
+function feedback() { if ('vibrate' in navigator) navigator.vibrate(8); }
+function next() { dismissGuide(); feedback(); showProject(activeIndex + 1, false, 1); }
+function previous() { dismissGuide(); feedback(); showProject(activeIndex - 1, false, -1); }
 
 document.querySelector('[data-next]').addEventListener('click', next);
 document.querySelector('[data-prev]').addEventListener('click', previous);
@@ -123,20 +140,38 @@ portfolio.addEventListener('wheel', event => {
   setTimeout(() => { wheelLocked = false; }, 650);
 }, { passive:true });
 
-stage.addEventListener('touchstart', event => {
+portfolio.addEventListener('touchstart', event => {
+  if (event.target.closest('button, a')) return;
   const touch = event.changedTouches[0];
   touchStartX = touch.clientX;
   touchStartY = touch.clientY;
+  stage.classList.add('is-dragging');
 }, { passive:true });
 
-stage.addEventListener('touchend', event => {
+portfolio.addEventListener('touchmove', event => {
+  if (!stage.classList.contains('is-dragging')) return;
+  const touch = event.changedTouches[0];
+  const dx = touch.clientX - touchStartX;
+  stage.style.setProperty('--drag-x', `${dx * .22}px`);
+}, { passive:true });
+
+portfolio.addEventListener('touchend', event => {
+  if (!stage.classList.contains('is-dragging')) return;
   const touch = event.changedTouches[0];
   const dx = touch.clientX - touchStartX;
   const dy = touch.clientY - touchStartY;
+  stage.classList.remove('is-dragging');
+  stage.style.removeProperty('--drag-x');
   if (Math.max(Math.abs(dx), Math.abs(dy)) < 42) return;
   const forward = Math.abs(dx) > Math.abs(dy) ? dx < 0 : dy < 0;
   forward ? next() : previous();
 }, { passive:true });
+
+stage.addEventListener('click', event => {
+  if (event.target.closest('button, a') || stage.classList.contains('is-dragging')) return;
+  const rect = stage.getBoundingClientRect();
+  event.clientX < rect.left + rect.width / 2 ? previous() : next();
+});
 
 window.addEventListener('keydown', event => {
   if (['ArrowRight','ArrowDown','PageDown',' '].includes(event.key)) { event.preventDefault(); next(); }
@@ -144,3 +179,4 @@ window.addEventListener('keydown', event => {
 });
 
 showProject(0, true);
+setTimeout(dismissGuide, 4800);
