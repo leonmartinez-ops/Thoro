@@ -9,7 +9,7 @@ img{display:block}
 .brand{text-decoration:none;font-size:25px;font-weight:700;letter-spacing:-.08em}
 .brand span{color:var(--accent)}
 .counter{font-size:10px;letter-spacing:.15em;opacity:.8}
-.viewer{position:fixed;inset:0 0 62px;background:#000;touch-action:none}
+.viewer{position:fixed;inset:0 0 72px;background:#000;touch-action:none}
 .stage{position:absolute;inset:0;margin:0;overflow:hidden;background:#111;cursor:grab}
 .stage.is-dragging{cursor:grabbing}
 .stage-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transform:scale(1.02);filter:blur(2px);transition:opacity .5s ease,transform .8s var(--ease),filter .55s ease}
@@ -29,16 +29,23 @@ img{display:block}
 .prev{left:10px}.next{right:10px}
 .swipe{position:absolute;z-index:9;left:50%;top:50%;transform:translate(-50%,-50%);padding:10px 14px;border:1px solid rgba(255,255,255,.32);border-radius:999px;background:rgba(0,0,0,.38);backdrop-filter:blur(10px);font-size:8px;letter-spacing:.2em;transition:.5s}
 .swipe.is-hidden{opacity:0;transform:translate(-50%,-40%)}
-.contactbar{position:fixed;z-index:40;left:0;right:0;bottom:0;height:62px;display:grid;grid-template-columns:1fr 1fr;background:#080808;border-top:1px solid rgba(255,255,255,.16);padding-bottom:env(safe-area-inset-bottom)}
-.contact{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-size:10px;letter-spacing:.11em;text-transform:uppercase}
+.contactbar{position:fixed;z-index:40;left:0;right:0;bottom:0;height:72px;display:grid;grid-template-columns:1fr 1fr;background:rgba(7,7,7,.96);border-top:1px solid rgba(255,255,255,.18);padding-bottom:env(safe-area-inset-bottom);backdrop-filter:blur(16px)}
+.contact{display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 10px;text-decoration:none;text-transform:none;min-width:0}
 .contact+.contact{border-left:1px solid rgba(255,255,255,.16)}
-.contact b{font-size:14px;font-weight:400;color:var(--accent)}
-.progress{position:fixed;z-index:45;left:0;right:0;bottom:62px;height:2px;background:rgba(255,255,255,.13)}
+.social-icon{width:35px;height:35px;flex:0 0 35px;border-radius:10px;display:grid;place-items:center}
+.social-icon svg{width:21px;height:21px;fill:#fff}
+.whatsapp-icon{background:#25D366;box-shadow:0 0 18px rgba(37,211,102,.18)}
+.instagram-icon{background:radial-gradient(circle at 30% 107%,#fdf497 0 5%,#fdf497 5% 10%,#fd5949 45%,#d6249f 60%,#285AEB 90%);box-shadow:0 0 18px rgba(214,36,159,.18)}
+.contact-copy{display:flex;min-width:0;flex-direction:column;gap:2px;line-height:1}
+.contact-copy strong{font-size:11px;font-weight:650;letter-spacing:.01em;color:#fff}
+.contact-copy small{font-size:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(255,255,255,.58)}
+.contact b{font-size:14px;font-weight:400;color:rgba(255,255,255,.7);margin-left:1px}
+.progress{position:fixed;z-index:45;left:0;right:0;bottom:72px;height:2px;background:rgba(255,255,255,.13)}
 .progress i{display:block;width:100%;height:100%;background:var(--accent);transform:scaleX(.03);transform-origin:left;transition:transform .5s var(--ease),background .3s}
 @media(min-width:701px){
-  .viewer{bottom:68px}
-  .contactbar{height:68px;left:auto;width:430px;border-left:1px solid rgba(255,255,255,.16)}
-  .progress{bottom:68px}
+  .viewer{bottom:72px}
+  .contactbar{height:72px;left:auto;width:460px;border-left:1px solid rgba(255,255,255,.16)}
+  .progress{bottom:72px}
   .stage{inset:16px}
   .caption{left:40px;bottom:38px}
   .nav{width:44px;height:44px}.prev{left:30px}.next{right:30px}
