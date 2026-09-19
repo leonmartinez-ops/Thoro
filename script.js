@@ -1,182 +1,61 @@
-const projects = [
-  { file:'calaveras', title:'Calaveras de color', category:'Mural artístico', description:'Una pared convertida en identidad.', accent:'#dfff00', alt:'Mural colorido de calaveras y corazones' },
-  { file:'kanpai-mural', title:'Kanpai', category:'Identidad gráfica', description:'Ilustración y señalética integradas al restaurante.', accent:'#ffcb3b', alt:'Mural gráfico en restaurante Kanpai' },
-  { file:'kanpai-panoramica', title:'Universo Kanpai', category:'Intervención integral', description:'Una narrativa visual que recorre todo el espacio.', accent:'#ff5a36', alt:'Vista panorámica de la intervención mural Kanpai' },
-  { file:'la-culposa-mural', title:'La Culposa', category:'Mural interior', description:'Personajes, color y geometría a escala arquitectónica.', accent:'#ff4ab8', alt:'Mural ilustrado de La Culposa' },
-  { file:'la-culposa-lateral', title:'Gráfica que habla', category:'Identidad aplicada', description:'Mensajes de marca convertidos en superficie.', accent:'#f0ff48', alt:'Aplicación gráfica en mobiliario de La Culposa' },
-  { file:'la-culposa-frente', title:'Frente de marca', category:'Gráfica comercial', description:'Identidad visible desde cada punto de contacto.', accent:'#ff623f', alt:'Frente gráfico de La Culposa' },
-  { file:'universo-panoramico', title:'Del muro al recorrido', category:'Mural panorámico', description:'Una intervención que une varias escenas.', accent:'#7f67ff', alt:'Intervención mural panorámica en interior' },
-  { file:'mona-gata', title:'Mona Gata', category:'Personaje mural', description:'Arte original con una presencia imposible de ignorar.', accent:'#4ff1ff', alt:'Personaje felino pintado en mural' },
-  { file:'mural-luz', title:'La idea enciende', category:'Mural con luz', description:'Ilustración e iluminación trabajando como una sola pieza.', accent:'#5effff', alt:'Mural ilustrado con líneas luminosas' },
-  { file:'movimiento-general', title:'Movimiento', category:'Mural abstracto', description:'Forma, ritmo y color dialogando con la arquitectura.', accent:'#ff7048', alt:'Mural abstracto en interior' },
-  { file:'movimiento-amplio', title:'Espacio en movimiento', category:'Intervención mural', description:'Una composición continua que transforma el ambiente.', accent:'#ff9a47', alt:'Vista amplia de un mural abstracto' },
-  { file:'movimiento-detalle', title:'Detalle orgánico', category:'Mural abstracto', description:'El trazo también se descubre de cerca.', accent:'#ff78ba', alt:'Detalle de mural con formas orgánicas' },
-  { file:'jardin-mural', title:'Jardín mural', category:'Intervención volumétrica', description:'Capas, volumen y textura para crear un punto fotográfico.', accent:'#f4bed4', alt:'Intervención mural floral tridimensional' },
-  { file:'paseo-interlomas', title:'Paseo Interlomas', category:'Tapial comercial', description:'Cobertura de gran formato para una apertura visible.', accent:'#f4ee44', alt:'Tapial publicitario curvo en centro comercial' },
-  { file:'la-isla-noche', title:'La Isla', category:'Fachada nocturna', description:'Color de gran formato diseñado para funcionar con luz.', accent:'#61ff87', alt:'Fachada comercial iluminada de noche' },
-  { file:'la-isla-dia', title:'Fachada comercial', category:'Tapial exterior', description:'Impacto a distancia y lectura clara de marca.', accent:'#53e5ff', alt:'Fachada comercial vista de día' },
-  { file:'buffalo-instalacion', title:'Buffalo Wild Wings', category:'Instalación', description:'Producción y montaje en superficies de gran escala.', accent:'#ffdf42', alt:'Instalación gráfica exterior en proceso' },
-  { file:'instalacion-cristal', title:'Altura y precisión', category:'Montaje gran formato', description:'Instalación técnica para espacios comerciales complejos.', accent:'#ff5538', alt:'Instalación gráfica sobre cristal en altura' },
-  { file:'cafe-montana', title:'Café Montana', category:'Identidad mural', description:'Una marca convertida en gesto gráfico sobre el muro.', accent:'#f4d85a', alt:'Logotipo mural de Café Montana' },
-  { file:'calibracion-color', title:'Color bajo control', category:'Producción', description:'Pruebas y calibración para respetar cada tono.', accent:'#00d9ff', alt:'Proceso profesional de calibración de color' },
-  { file:'piso-grafico', title:'El espacio completo', category:'Aplicación en piso', description:'La intervención también sucede bajo los pies.', accent:'#ff5c9e', alt:'Aplicación gráfica de patrón sobre piso' },
-  { file:'piso-detalle', title:'Patrón y superficie', category:'Detalle de instalación', description:'Precisión de registro en cada módulo.', accent:'#a78cff', alt:'Detalle de piso gráfico instalado' },
-  { file:'concepto-mall', title:'Antes de producir', category:'Visualización', description:'Propuestas a escala para decidir con claridad.', accent:'#50f49a', alt:'Visualización de concepto gráfico para centro comercial' },
-  { file:'concepto-tapial', title:'Concepto de tapial', category:'Diseño previo', description:'La idea se prueba en el espacio antes de instalarse.', accent:'#ffde45', alt:'Presentación de concepto para tapial comercial' },
-  { file:'concepto-techo', title:'Todas las superficies', category:'Concepto espacial', description:'Muros, techos, cristales y pisos pueden contar la historia.', accent:'#ff693d', alt:'Intervención gráfica de techo en un espacio interior' }
+const projects=[
+{src:'assets/full/calaveras.webp',title:'Calaveras de color',cat:'Mural artístico',accent:'#dfff00'},
+{src:'assets/full/kanpai-mural.webp',title:'Kanpai',cat:'Identidad mural',accent:'#ffcb3b'},
+{src:'assets/full/kanpai-panoramica.webp',title:'Universo Kanpai',cat:'Mural panorámico',accent:'#ff5a36'},
+{src:'assets/full/la-culposa-mural.webp',title:'La Culposa',cat:'Mural interior',accent:'#ff4ab8'},
+{src:'assets/full/la-culposa-lateral.webp',title:'Gráfica que habla',cat:'Identidad aplicada',accent:'#f0ff48'},
+{src:'assets/full/la-culposa-frente.webp',title:'La Culposa',cat:'Gráfica comercial',accent:'#ff623f'},
+{src:'assets/full/universo-panoramico.webp',title:'Universo mural',cat:'Intervención',accent:'#7f67ff'},
+{src:'assets/full/mona-gata.webp',title:'Mona Gata',cat:'Personaje mural',accent:'#4ff1ff'},
+{src:'assets/full/mural-luz.webp',title:'Luz + mural',cat:'Intervención',accent:'#5effff'},
+{src:'assets/full/movimiento-general.webp',title:'Movimiento',cat:'Mural abstracto',accent:'#ff7048'},
+{src:'assets/full/movimiento-amplio.webp',title:'Espacio en movimiento',cat:'Intervención mural',accent:'#ff9a47'},
+{src:'assets/full/movimiento-detalle.webp',title:'Detalle orgánico',cat:'Mural abstracto',accent:'#ff78ba'},
+{src:'assets/full/jardin-mural.webp',title:'Jardín mural',cat:'Intervención volumétrica',accent:'#f4bed4'},
+{src:'assets/full/paseo-interlomas.webp',title:'Paseo Interlomas',cat:'Tapial comercial',accent:'#f4ee44'},
+{src:'assets/full/la-isla-noche.webp',title:'La Isla',cat:'Fachada nocturna',accent:'#61ff87'},
+{src:'assets/full/la-isla-dia.webp',title:'La Isla',cat:'Fachada comercial',accent:'#53e5ff'},
+{src:'assets/full/buffalo-instalacion.webp',title:'Buffalo Wild Wings',cat:'Instalación',accent:'#ffdf42'},
+{src:'assets/full/instalacion-cristal.webp',title:'Gran formato',cat:'Instalación',accent:'#ff5538'},
+{src:'assets/full/cafe-montana.webp',title:'Café Montana',cat:'Identidad mural',accent:'#f4d85a'},
+{src:'assets/full/calibracion-color.webp',title:'Color',cat:'Producción',accent:'#00d9ff'},
+{src:'assets/full/piso-grafico.webp',title:'Gráfica en piso',cat:'Intervención',accent:'#ff5c9e'},
+{src:'assets/full/piso-detalle.webp',title:'Patrón y superficie',cat:'Detalle',accent:'#a78cff'},
+{src:'assets/full/concepto-mall.webp',title:'Visualización',cat:'Concepto',accent:'#50f49a'},
+{src:'assets/full/concepto-tapial.webp',title:'Tapial',cat:'Concepto',accent:'#ffde45'},
+{src:'assets/full/concepto-techo.webp',title:'Todas las superficies',cat:'Concepto espacial',accent:'#ff693d'},
+{src:'assets/concepto-vertical.webp',title:'Escala vertical',cat:'Concepto',accent:'#dfff00'},
+{src:'assets/lush-tapial.webp',title:'Lush',cat:'Tapial',accent:'#ffcb3b'},
+{src:'assets/mural-floral.webp',title:'Mural floral',cat:'Arte mural',accent:'#ff78ba'},
+{src:'assets/mural-mano.webp',title:'Hecho a mano',cat:'Proceso',accent:'#50f49a'},
+{src:'assets/mural-panoramico.webp',title:'Panorámica',cat:'Mural',accent:'#53e5ff'},
+{src:'assets/mural-pastel-detalle.webp',title:'Detalle',cat:'Mural',accent:'#f4bed4'},
+{src:'assets/mural-pastel-general.webp',title:'Pastel',cat:'Mural',accent:'#ff9a47'},
+{src:'assets/paseo-tapial.webp',title:'Paseo',cat:'Tapial',accent:'#f4ee44'}
 ];
 
-const root = document.documentElement;
-const portfolio = document.querySelector('[data-portfolio]');
-const stage = document.querySelector('[data-stage]');
-const ambient = document.querySelector('[data-ambient]');
-const info = document.querySelector('[data-info]');
-const title = document.querySelector('[data-title]');
-const category = document.querySelector('[data-category]');
-const description = document.querySelector('[data-description]');
-const indexLabel = document.querySelector('[data-index]');
-const progress = document.querySelector('[data-progress]');
-const gestureGuide = document.querySelector('[data-gesture-guide]');
-const thumbs = document.querySelector('[data-thumbs]');
-const layers = [document.querySelector('[data-layer="a"]'), document.querySelector('[data-layer="b"]')];
-let activeLayer = 0;
-let activeIndex = 0;
-let changeToken = 0;
-let wheelLocked = false;
-let touchStartX = 0;
-let touchStartY = 0;
-
-document.querySelector('[data-archive-count]').textContent = `${projects.length} proyectos`;
-
-projects.forEach((project, index) => {
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.className = 'thumb';
-  button.dataset.number = String(index + 1).padStart(2, '0');
-  button.setAttribute('aria-label', `Ver ${project.title}`);
-  button.innerHTML = `<img src="assets/thumbs/${project.file}.webp" alt="" loading="lazy" />`;
-  button.addEventListener('click', () => {
-    dismissGuide();
-    showProject(index, false, index >= activeIndex ? 1 : -1);
-  });
-  thumbs.append(button);
-});
-
-function wrap(index) {
-  return (index + projects.length) % projects.length;
+const root=document.documentElement,portfolio=document.querySelector('[data-portfolio]'),stage=document.querySelector('[data-stage]'),info=document.querySelector('[data-info]'),title=document.querySelector('[data-title]'),cat=document.querySelector('[data-category]'),idx=document.querySelector('[data-index]'),progress=document.querySelector('[data-progress]'),guide=document.querySelector('[data-gesture-guide]'),layers=[document.querySelector('[data-layer="a"]'),document.querySelector('[data-layer="b"]')];
+let active=0,layer=0,startX=0,startY=0,token=0;
+const wrap=n=>(n+projects.length)%projects.length;
+function hideGuide(){guide?.classList.add('is-hidden')}
+function preload(n){const i=new Image();i.src=projects[wrap(n)].src}
+async function show(n,immediate=false,direction=1){
+ n=wrap(n); if(!immediate&&n===active)return;
+ const p=projects[n],nextLayer=immediate?layer:1-layer,next=layers[nextLayer],current=layers[layer],t=++token;
+ if(!immediate){info.classList.add('is-changing');next.className='stage-image '+(direction>0?'enter-next':'enter-prev')}
+ next.src=p.src; next.alt=p.title;
+ try{await next.decode()}catch(e){}
+ if(t!==token)return;
+ title.textContent=p.title;cat.textContent=p.cat;idx.textContent=String(n+1).padStart(2,'0')+' / '+String(projects.length).padStart(2,'0');root.style.setProperty('--accent',p.accent);progress.style.transform='scaleX('+((n+1)/projects.length)+')';
+ if(!immediate){next.getBoundingClientRect();next.classList.add('is-visible');next.classList.remove(direction>0?'enter-next':'enter-prev');current.classList.remove('is-visible');current.classList.add(direction>0?'exit-next':'exit-prev');setTimeout(()=>current.classList.remove('exit-next','exit-prev'),700);layer=nextLayer}
+ active=n;requestAnimationFrame(()=>info.classList.remove('is-changing'));preload(n+1);preload(n-1)
 }
-
-function preload(index) {
-  const image = new Image();
-  image.src = `assets/full/${projects[wrap(index)].file}.webp`;
-}
-
-async function showProject(nextIndex, immediate = false, direction = 1) {
-  const normalized = wrap(nextIndex);
-  if (!immediate && normalized === activeIndex) return;
-  const project = projects[normalized];
-  const token = ++changeToken;
-  const nextLayerIndex = immediate ? activeLayer : 1 - activeLayer;
-  const nextLayer = layers[nextLayerIndex];
-  const currentLayer = layers[activeLayer];
-  const source = `assets/full/${project.file}.webp`;
-
-  const enterClass = direction > 0 ? 'enter-next' : 'enter-prev';
-  const exitClass = direction > 0 ? 'exit-next' : 'exit-prev';
-  if (!immediate) {
-    info.classList.add('is-changing');
-    nextLayer.className = `stage-image ${enterClass}`;
-  }
-  nextLayer.src = source;
-  nextLayer.alt = project.alt;
-  try { await nextLayer.decode(); } catch (_) { /* onload fallback */ }
-  if (token !== changeToken) return;
-
-  title.textContent = project.title;
-  category.textContent = project.category;
-  description.textContent = project.description;
-  indexLabel.textContent = `${String(normalized + 1).padStart(2,'0')} / ${String(projects.length).padStart(2,'0')}`;
-  progress.style.transform = `scaleX(${(normalized + 1) / projects.length})`;
-  root.style.setProperty('--accent', project.accent);
-  ambient.style.opacity = '.12';
-  ambient.src = source;
-
-  if (!immediate) {
-    nextLayer.getBoundingClientRect();
-    nextLayer.classList.add('is-visible');
-    nextLayer.classList.remove(enterClass);
-    currentLayer.classList.remove('is-visible');
-    currentLayer.classList.add(exitClass);
-    setTimeout(() => currentLayer.classList.remove(exitClass), 720);
-    activeLayer = nextLayerIndex;
-  }
-
-  activeIndex = normalized;
-  const thumb = thumbs.children[normalized];
-  [...thumbs.children].forEach((item, i) => item.classList.toggle('is-active', i === normalized));
-  thumb.scrollIntoView({ behavior:immediate ? 'auto' : 'smooth', block:'nearest', inline:'center' });
-
-  requestAnimationFrame(() => {
-    info.classList.remove('is-changing');
-    ambient.style.opacity = '.42';
-  });
-  preload(normalized + 1);
-  preload(normalized - 1);
-}
-
-function dismissGuide() { gestureGuide?.classList.add('is-hidden'); }
-function feedback() { if ('vibrate' in navigator) navigator.vibrate(8); }
-function next() { dismissGuide(); feedback(); showProject(activeIndex + 1, false, 1); }
-function previous() { dismissGuide(); feedback(); showProject(activeIndex - 1, false, -1); }
-
-document.querySelector('[data-next]').addEventListener('click', next);
-document.querySelector('[data-prev]').addEventListener('click', previous);
-document.querySelector('[data-home]').addEventListener('click', event => { event.preventDefault(); showProject(0); });
-
-portfolio.addEventListener('wheel', event => {
-  if (wheelLocked || Math.abs(event.deltaY) < 22) return;
-  wheelLocked = true;
-  event.deltaY > 0 ? next() : previous();
-  setTimeout(() => { wheelLocked = false; }, 650);
-}, { passive:true });
-
-portfolio.addEventListener('touchstart', event => {
-  if (event.target.closest('button, a')) return;
-  const touch = event.changedTouches[0];
-  touchStartX = touch.clientX;
-  touchStartY = touch.clientY;
-  stage.classList.add('is-dragging');
-}, { passive:true });
-
-portfolio.addEventListener('touchmove', event => {
-  if (!stage.classList.contains('is-dragging')) return;
-  const touch = event.changedTouches[0];
-  const dx = touch.clientX - touchStartX;
-  stage.style.setProperty('--drag-x', `${dx * .22}px`);
-}, { passive:true });
-
-portfolio.addEventListener('touchend', event => {
-  if (!stage.classList.contains('is-dragging')) return;
-  const touch = event.changedTouches[0];
-  const dx = touch.clientX - touchStartX;
-  const dy = touch.clientY - touchStartY;
-  stage.classList.remove('is-dragging');
-  stage.style.removeProperty('--drag-x');
-  if (Math.max(Math.abs(dx), Math.abs(dy)) < 42) return;
-  const forward = Math.abs(dx) > Math.abs(dy) ? dx < 0 : dy < 0;
-  forward ? next() : previous();
-}, { passive:true });
-
-stage.addEventListener('click', event => {
-  if (event.target.closest('button, a') || stage.classList.contains('is-dragging')) return;
-  const rect = stage.getBoundingClientRect();
-  event.clientX < rect.left + rect.width / 2 ? previous() : next();
-});
-
-window.addEventListener('keydown', event => {
-  if (['ArrowRight','ArrowDown','PageDown',' '].includes(event.key)) { event.preventDefault(); next(); }
-  if (['ArrowLeft','ArrowUp','PageUp'].includes(event.key)) { event.preventDefault(); previous(); }
-});
-
-showProject(0, true);
-setTimeout(dismissGuide, 4800);
+const next=()=>{hideGuide();navigator.vibrate?.(6);show(active+1,false,1)}
+const prev=()=>{hideGuide();navigator.vibrate?.(6);show(active-1,false,-1)}
+document.querySelector('[data-next]').onclick=next;document.querySelector('[data-prev]').onclick=prev;document.querySelector('[data-home]').onclick=e=>{e.preventDefault();show(0)};
+portfolio.addEventListener('touchstart',e=>{if(e.target.closest('a,button'))return;const t=e.changedTouches[0];startX=t.clientX;startY=t.clientY;stage.classList.add('is-dragging')},{passive:true});
+portfolio.addEventListener('touchmove',e=>{if(!stage.classList.contains('is-dragging'))return;const dx=e.changedTouches[0].clientX-startX;stage.style.setProperty('--drag-x',(dx*.22)+'px')},{passive:true});
+portfolio.addEventListener('touchend',e=>{if(!stage.classList.contains('is-dragging'))return;const t=e.changedTouches[0],dx=t.clientX-startX,dy=t.clientY-startY;stage.classList.remove('is-dragging');stage.style.removeProperty('--drag-x');if(Math.max(Math.abs(dx),Math.abs(dy))<40)return;(Math.abs(dx)>Math.abs(dy)?dx<0:dy<0)?next():prev()},{passive:true});
+stage.addEventListener('click',e=>{if(e.target.closest('a,button'))return;const r=stage.getBoundingClientRect();e.clientX<r.left+r.width/2?prev():next()});
+window.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' '].includes(e.key))next();if(['ArrowLeft','ArrowUp'].includes(e.key))prev()});
+show(0,true);setTimeout(hideGuide,3500);
