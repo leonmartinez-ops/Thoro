@@ -1,63 +1,43 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#080808" />
-  <meta name="description" content="THORO crea murales, tapiales y gráfica ambiental para espacios comerciales." />
-  <meta property="og:title" content="THORO — Murales y tapiales" />
-  <meta property="og:description" content="Pintamos espacios que la gente recuerda." />
-  <meta property="og:image" content="assets/full/calaveras.webp" />
-  <title>THORO — Murales y tapiales</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="assets/full/calaveras.webp" as="image" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="THORO — Murales, arte e intervención de espacios.">
+  <title>THORO — Murales</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="wordmark" href="#" data-home aria-label="THORO, inicio">TH<span>O</span>RO</a>
-    <p class="header-tag">Murales · Tapiales · Gráfica ambiental</p>
-    <a class="header-cta" href="https://wa.me/528181381986?text=Hola%20THORO%2C%20quiero%20cotizar%20un%20proyecto%20de%20mural%20o%20tapial." target="_blank" rel="noopener noreferrer">Cotizar <span>↗</span></a>
+  <header class="topbar">
+    <a class="brand" href="#" data-home>TH<span>O</span>RO</a>
+    <span class="counter" data-index>01 / 33</span>
   </header>
-  <div class="progress-track" aria-hidden="true"><i data-progress></i></div>
 
-  <main class="portfolio" data-portfolio aria-live="polite">
-    <div class="ambient" aria-hidden="true"><img data-ambient src="assets/full/calaveras.webp" alt="" /></div>
-
+  <main class="viewer" data-portfolio>
     <figure class="stage" data-stage>
-      <img class="stage-image is-visible" data-layer="a" src="assets/full/calaveras.webp" alt="Mural colorido de calaveras y corazones" />
-      <img class="stage-image" data-layer="b" src="assets/full/calaveras.webp" alt="" />
-      <div class="stage-vignette"></div>
+      <img class="stage-image is-visible" data-layer="a" src="assets/full/calaveras.webp" alt="">
+      <img class="stage-image" data-layer="b" src="assets/full/calaveras.webp" alt="">
+      <div class="shade"></div>
     </figure>
 
-    <section class="project-info" data-info>
-      <div class="project-meta"><span data-index>01 / 25</span><span data-category>Mural artístico</span></div>
-      <h1 data-title>Calaveras de color</h1>
-      <p data-description>Una pared convertida en identidad.</p>
-    </section>
-
-    <button class="arrow arrow--prev" type="button" data-prev aria-label="Proyecto anterior">←</button>
-    <button class="arrow arrow--next" type="button" data-next aria-label="Proyecto siguiente">→</button>
-    <div class="swipe-cue" aria-hidden="true"><i></i><span>Desliza</span></div>
-    <div class="gesture-guide" data-gesture-guide aria-hidden="true">
-      <span class="gesture-icon"><i></i></span>
-      <span><strong>Desliza para explorar</strong><small>También puedes tocar los lados</small></span>
+    <div class="caption" data-info>
+      <span data-category>MURAL</span>
+      <h1 data-title>THORO</h1>
     </div>
+
+    <button class="nav prev" data-prev aria-label="Anterior">‹</button>
+    <button class="nav next" data-next aria-label="Siguiente">›</button>
+    <div class="swipe" data-gesture-guide>DESLIZA</div>
   </main>
 
-  <nav class="filmstrip" aria-label="Todos los proyectos">
-    <div class="filmstrip-head"><span>Archivo visual</span><span data-archive-count>25 proyectos</span></div>
-    <div class="thumbs" data-thumbs></div>
+  <nav class="contactbar">
+    <a class="contact whatsapp" href="https://wa.me/528181381986?text=Hola%20THORO%2C%20quiero%20cotizar%20un%20mural." target="_blank" rel="noopener">WhatsApp <b>↗</b></a>
+    <a class="contact instagram" href="https://www.instagram.com/thorocalavera.art/" target="_blank" rel="noopener">Instagram <b>↗</b></a>
   </nav>
 
-  <a class="whatsapp-button" href="https://wa.me/528181381986?text=Hola%20THORO%2C%20quiero%20cotizar%20un%20proyecto%20de%20mural%20o%20tapial." target="_blank" rel="noopener noreferrer" aria-label="Cotizar un proyecto por WhatsApp">
-    <span class="whatsapp-dot" aria-hidden="true"></span>
-    <span>Hablemos por WhatsApp</span>
-    <b aria-hidden="true">↗</b>
-  </a>
-
+  <div class="progress"><i data-progress></i></div>
   <script src="script.js"></script>
 </body>
 </html>
