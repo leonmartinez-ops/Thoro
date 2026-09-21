@@ -1,4 +1,5 @@
 const projects=[
+{src:'assets/IMG_0295.jpeg',title:'THORO',cat:'Portada',accent:'#ff2b1c'},
 {src:'assets/full/calaveras.webp',title:'Calaveras de color',cat:'Mural artístico',accent:'#dfff00'},
 {src:'assets/full/kanpai-mural.webp',title:'Kanpai',cat:'Identidad mural',accent:'#ffcb3b'},
 {src:'assets/full/kanpai-panoramica.webp',title:'Universo Kanpai',cat:'Mural panorámico',accent:'#ff5a36'},
